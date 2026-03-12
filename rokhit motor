@@ -1,0 +1,32 @@
+# motor_control.py
+# Simple motor control simulation
+
+class Motor:
+    def __init__(self, name):
+        self.name = name
+        self.speed = 0
+        self.is_on = False
+
+    def start(self, speed):
+        self.is_on = True
+        self.speed = speed
+        print(f"{self.name} started at speed {self.speed}")
+
+    def stop(self):
+        self.is_on = False
+        self.speed = 0
+        print(f"{self.name} stopped")
+
+    def status(self):
+        if self.is_on:
+            return f"{self.name} is running at speed {self.speed}"
+        else:
+            return f"{self.name} is off"
+
+# Example usage
+if __name__ == "__main__":
+    motor1 = Motor("Motor A")
+    motor1.start(100)
+    print(motor1.status())
+    motor1.stop()
+    print(motor1.status())
